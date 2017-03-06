@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arfnj/paranoia.git"
+    "url": "https://github.com/arfnj/paranoia.git"
   },
   "author": "Andrew Fechner",
   "license": "ISC",
