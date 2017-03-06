@@ -1,0 +1,5 @@
+node_modules/
+
+./config/zipcodes.js
+
+.DS_Store
