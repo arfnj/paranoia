@@ -1,4 +1,6 @@
-var zipkey = zipkey || require(__dirname+'/zipcodes.js').zipkey;
+var zipkey = HEROKU_ZIPKEY === undefined ? require(__dirname+'/zipcodes.js') : HEROKU_ZIPKEY
+
+// var zipkey = HEROKU_ZIPKEY || require(__dirname+'/zipcodes.js');
 var request = require('request');
 
 let baseURL = 'https://www.zipcodeapi.com/rest/' + zipkey + '/info.json';
