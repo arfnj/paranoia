@@ -1,19 +1,19 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var http = require('http');
+var path = require('path');
 
 var app = express();
-
-process.env.PWD = process.cwd();
+var port = process.env.PORT || 8000
 
 // connect to mongo database named "shortly"
 //mongoose.connect('mongodb://localhost/shortly');
 
 // configure our server with all the middleware and routing
-require(process.env.PWD+'/server/config/middleware.js')(app, express);
-require(process.env.PWD+'/server/config/routes.js')(app, express);
+require(__dirname+'/server/config/middleware.js')(app, express);
+require(__dirname+'/server/config/routes.js')(app, express);
 // start listening to requests on port 8000
-app.listen(8000);
+app.listen(port);
 
 // export our app for testing and flexibility, required by index.js
 module.exports = app;
