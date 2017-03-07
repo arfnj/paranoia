@@ -22,6 +22,7 @@ angular.module('paranoia',[])
       }
       $scope.showResults = true;
       $scope.zipCode = '';
+      document.getElementById("cities").selectedIndex = 0;
     })
   };
 
