@@ -47,16 +47,21 @@
       <option value="TB">Tampa</option>
       <option value="WAS">Washington, DC</option>
     </select>
+
+    <div ng-if="showResults" id='results' class="ng-cloak">
+      <h1>You should be afraid because ...</h1>
+      <div>
+        <h2>RESULTS PAGE</h2>
+        <h3>{{ numQuakes }} quakes in the past year</h3>
+        <h3>{{ teamName }} players have been arrested {{ arrests }} times</h3>
+      </div>
     </div>
 
-
-
-    <div ng-view></div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.js"></script>
 
     <script src="app/app.js"></script>
-    <script src="app/results/results.js"></script>
   </body>
 </html>

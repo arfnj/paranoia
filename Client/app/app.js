@@ -1,21 +1,8 @@
-angular.module('paranoia', ['results','ngRoute'])
+angular.module('paranoia',[])
 
-.config(function ($routeProvider, $httpProvider) {
-  $routeProvider
-    .when('/results', {
-      templateUrl: 'app/results/results.html',
-      controller: 'ResultsController'
-    })
-    .otherwise({
-      redirectTo: '/'
-    });
-})
+.controller('ParanoiaController', function ($scope,$http) {
 
-// .service('statistics', function () {
-//   var quakeData =
-// })
-
-.controller('ParanoiaController', function ($scope,$location,$http,$rootScope) {
+  $scope.showResults = false;
 
   $scope.getData = function () {
     $scope.zipSearch = '/'+$scope.zipCode+'/degrees';
@@ -26,10 +13,15 @@ angular.module('paranoia', ['results','ngRoute'])
       data: {zipCode: $scope.zipSearch}
     })
     .then (function(data) {
-      $rootScope.quakeData = data.data;
-      console.log('root scope quakeData: ', $rootScope.quakeData)
+      $scope.numQuakes = data.data.length;
+      for (var i=0; i<nflData.length; i++) {
+        if (nflData[i]["Team"] === $scope.team) {
+          $scope.arrests = nflData[i]["arrest_count"];
+          $scope.teamName = nflData[i]["Team_name"];
+        }
+      }
+      $scope.showResults = true;
       $scope.zipCode = '';
-      $location.path('/results');
     })
   };
 
@@ -245,15 +237,5 @@ angular.module('paranoia', ['results','ngRoute'])
     "arrest_count": "3"
   }
 ]
-
-  $scope.getValue = function() {
-    console.log($scope.team);
-    for (var i=0; i<nflData.length; i++) {
-      if (nflData[i]["Team"] === $scope.team) {
-        $rootScope.nflArrests = nflData[i]["arrest_count"];
-        $rootScope.nflTeam = nflData[i]["Team_name"];
-      }
-    }
-  };
 
 });
