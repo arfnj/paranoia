@@ -4,6 +4,9 @@ var helpers = require(__dirname+'/helpers.js');
 
 module.exports = function (app, express) {
   app.post('/api/geocode/', apiController.getQuakes);
+  app.get('/', function(req,res) {
+    res.sendStatus(200);
+  });
 
   // If a request is sent somewhere other than the routes above,
   // send it through our custom error handler
