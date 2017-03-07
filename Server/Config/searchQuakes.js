@@ -19,8 +19,11 @@ module.exports = function(req, res, callback){
     options.qs.latitude = JSON.stringify(results["lat"]);
     options.qs.longitude = JSON.stringify(results["lng"]);
     request(options, function (error, response, body) {
+      // console.log(options);
       if (error) {
         throw new Error(error);
+      // } else if (response.statusCode = 400) {
+        // callback TBD
       } else {
         callback(JSON.parse(body));
       }

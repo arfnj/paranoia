@@ -1,7 +1,7 @@
 angular.module('results', [])
 
-.controller('ResultsController', function ($scope) {
-  $scope.numQuakes = $scope.quakeData.length;
+.controller('ResultsController', function ($scope,$rootScope) {
+  $scope.numQuakes = $rootScope.quakeData.length;
 
   // $scope.user = {};
 

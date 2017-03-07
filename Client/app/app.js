@@ -11,19 +11,19 @@ angular.module('paranoia', ['results','ngRoute'])
     });
 })
 
-.controller('ParanoiaController', function ($scope,$location,$http) {
+.controller('ParanoiaController', function ($scope,$location,$http,$rootScope) {
 
-  $scope.quakeData = {};
-  $scope.zipCode = '';
-  $scope.getData = function ($http) {
-    console.log('scope.zipcode', $scope.zipCode);
+  $scope.getData = function () {
+    $scope.zipSearch = '/'+$scope.zipCode+'/degrees';
     $http({
       method: 'POST',
       url: '/api/geocode',
-      data: $scope.zipCode
+      headers: { 'Content-Type': 'application/json' },
+      data: {zipCode: $scope.zipSearch}
     })
     .then (function(data) {
-      $scope.quakeData = data;
+      $rootScope.quakeData = data.data;
+      $scope.zipCode = '';
       $location.path('/results');
     })
   };
