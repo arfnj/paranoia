@@ -23,7 +23,8 @@ module.exports = function(req, res, callback){
         throw new Error(error);
       // } else if (response.statusCode = 400) {
         // callback TBD
-      } else {
+      } else if (response.statusCode = 200) {
+        console.log('STATUS CODE',response.statusCode)
         callback(JSON.parse(body));
       }
     });
