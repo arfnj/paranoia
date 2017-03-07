@@ -23,5 +23,5 @@ module.exports = function (app, express) {
   app.use(morgan('dev'));
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
-  app.use('/../../client',express.static(process.env.PWD + '/../../client'));
+  app.use(express.static(process.env.PWD + '/../../client'));
 };
