@@ -4,6 +4,8 @@ var http = require('http');
 
 var app = express();
 
+process.env.PWD = process.cwd();
+
 // connect to mongo database named "shortly"
 //mongoose.connect('mongodb://localhost/shortly');
 
