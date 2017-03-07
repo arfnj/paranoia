@@ -1,29 +1,13 @@
 angular.module('results', [])
 
 .controller('ResultsController', function ($scope,$rootScope) {
+
   $scope.numQuakes = $rootScope.quakeData.length;
+  $rootScope.quakeData = [];
 
-  // $scope.user = {};
+  $scope.Arrests = $rootScope.nflArrests;
+  $scope.Team = $rootScope.nflTeam;
 
-  // $scope.signin = function () {
-  //   Auth.signin($scope.user)
-  //     .then(function (token) {
-  //       $window.localStorage.setItem('com.shortly', token);
-  //       $location.path('/links');
-  //     })
-  //     .catch(function (error) {
-  //       console.error(error);
-  //     });
-  // };
 
-  // $scope.signup = function () {
-  //   Auth.signup($scope.user)
-  //     .then(function (token) {
-  //       $window.localStorage.setItem('com.shortly', token);
-  //       $location.path('/links');
-  //     })
-  //     .catch(function (error) {
-  //       console.error(error);
-  //     });
-  // };
+
 });

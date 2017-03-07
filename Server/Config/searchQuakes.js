@@ -6,7 +6,7 @@ var options = {
   url: 'https://earthquake.usgs.gov/fdsnws/event/1/query',
   qs: {
     format: 'geojson',
-    starttime: '2000-01-01',
+    starttime: '2016-03-06',
     endtime: '2017-03-05',
     latitude: '',
     longitude: '',
