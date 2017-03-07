@@ -1,4 +1,4 @@
-var zipkey = require('./zipcodes.js');
+var zipkey = require(__dirname+'/zipcodes.js').zipkey;
 var request = require('request');
 
 let baseURL = 'https://www.zipcodeapi.com/rest/' + zipkey + '/info.json';

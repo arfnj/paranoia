@@ -1,6 +1,6 @@
-var apiController = require('./apiController.js');
-var searchQuakes = require('./searchQuakes')
-var helpers = require('./helpers.js');
+var apiController = require(__dirname+'/apiController.js');
+var searchQuakes = require(__dirname+'/searchQuakes')
+var helpers = require(__dirname+'/helpers.js');
 
 module.exports = function (app, express) {
   app.post('/api/geocode/', apiController.getQuakes);

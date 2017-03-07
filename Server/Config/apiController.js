@@ -1,4 +1,4 @@
-var searchQuakes = require('./searchQuakes.js');
+var searchQuakes = require(__dirname+'/searchQuakes.js');
 var request = require('request');
 
 module.exports = {

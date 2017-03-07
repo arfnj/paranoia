@@ -1,5 +1,5 @@
 var request = require("request");
-var zipCodeRequest = require('./searchZips')
+var zipCodeRequest = require(__dirname+'/searchZips.js')
 
 var options = {
   method: 'GET',
