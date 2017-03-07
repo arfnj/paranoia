@@ -1,67 +1,59 @@
-angular.module('paranoia', ['results'])
+angular.module('paranoia', ['results','ngRoute'])
 
 .config(function ($routeProvider, $httpProvider) {
   $routeProvider
-    .when('/signin', {
-      templateUrl: 'app/auth/signin.html',
-      controller: 'AuthController'
-    })
-    .when('/signup', {
-      templateUrl: 'app/auth/signup.html',
-      controller: 'AuthController'
-    })
-    // Your code here
-
-    .when('/links', {
-      templateUrl: 'app/links/links.html',
-      controller: 'LinksController',
-      authenticate: true
-    })
-    .when('/shorten', {
-      templateUrl: 'app/shorten/shorten.html',
-      controller: 'ShortenController',
-      authenticate: true
+    .when('/results', {
+      templateUrl: 'app/results/results.html',
+      controller: 'ResultsController'
     })
     .otherwise({
-      redirectTo: '/links'
+      redirectTo: '/'
     });
-
-    // We add our $httpInterceptor into the array
-    // of interceptors. Think of it like middleware for your ajax calls
-  // $httpProvider.interceptors.push('AttachTokens');
 })
 
-.controller('ParanoiaController', function ($scope,$location,Quakes) {
+.controller('ParanoiaController', function ($scope,$location,$http) {
 
-  $scope.zip = {};
-  $scope.getData = function () {
-    $scope.loading = true;
-    Quakes.checkZip($scope.zip)
-      .then (function () {
-        $scope.loading = false;
-        $location.path('/results');
-      })
-      .catch (function(error) {
-        console.log(error);
-      })
+  $scope.quakeData = {};
+  $scope.zipCode = '';
+  $scope.getData = function ($http) {
+    console.log('scope.zipcode', $scope.zipCode);
+    $http({
+      method: 'POST',
+      url: '/api/geocode',
+      data: $scope.zipCode
+    })
+    .then (function(data) {
+      $scope.quakeData = data;
+      $location.path('/results');
+    })
   };
+
+    // $scope.loading = true;
+    // Quakes.checkZip($scope.zip)
+    //   .then (function () {
+    //     $scope.loading = false;
+    //     $location.path('/results');
+    //   })
+    //   .catch (function(error) {
+    //     console.log(error);
+      // })
 });
 
 
 
-.factory('Quakes', function($http) {
+// .factory('Quakes', function($http) {
 
-    var checkZip = function(zip) {
-      return $http({
-      method: 'POST',
-      url: '/api/geocode',
-      data: zip
-    });
-  };
+//     var checkZip = function(zip) {
+//       return $http({
+//       method: 'POST',
+//       url: '/api/geocode',
+//       data: zip
+//     });
+//   };
 
-  return {checkZip:checkZip};
+//   return {checkZip:checkZip};
 
-})
+// })
 
 
 
