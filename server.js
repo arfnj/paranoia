@@ -8,8 +8,8 @@ var app = express();
 //mongoose.connect('mongodb://localhost/shortly');
 
 // configure our server with all the middleware and routing
-require('./config/middleware.js')(app, express);
-require('./config/routes.js')(app, express);
+require('./server/config/middleware.js')(app, express);
+require('./server/config/routes.js')(app, express);
 // start listening to requests on port 8000
 app.listen(8000);
 
