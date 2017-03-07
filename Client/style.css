@@ -2,11 +2,32 @@
   display: none !important;
 }
 
-body{
+body {
+  text-align: center;
   margin: 0px;
-  background-color:#444;
   font-size: 18px;
   color: white;
   background-image: url(http://img3.rnkr-static.com/list_img_v2/7286/1907286/full/best-songs-about-paranoia.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
+}
+h1 {
+  background: rgba(0, 0, 0, .5);
+  padding: 10px;
+}
+.form-control {
+  margin: 20px 0;
+}
+
+.bucket {
+  background-color: #ed342a;
+  overflow: hidden;
+}
+
+.header {
+  font-size: 72px;
+}
+
+p {
+  font-size: 26px;
 }

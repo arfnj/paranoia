@@ -3,65 +3,78 @@
   <head>
     <meta charset="utf-8" />
     <title>Time to worry!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
-    <h1>It doesn't mean they're not after you</h1>
-    <div ng-controller='ParanoiaController'>
-    <form id='zipper' ng-submit="getData()">
-      <input name='zip' type='text' ng-model="zipCode"
-        placeholder="Enter your ZIP Code here" required
-        />
-      <button type="submit" value="zip">submit</button>
-    </form>
-    <select id='cities' data-ng-model='team' ng-change="getValue()">
-      <option value="" disabled selected hidden>Pick the city closest to you</option>
-      <option value="ATL">Atlanta</option>
-      <option value="BAL">Baltimore</option>
-      <option value="NE">Boston</option>
-      <option value="BUF">Buffalo</option>
-      <option value="CAR">Charlotte</option>
-      <option value="CHI">Chicago</option>
-      <option value="CIN">Cincinnati</option>
-      <option value="CLE">Cleveland</option>
-      <option value="DAL">Dallas</option>
-      <option value="DEN">Denver</option>
-      <option value="DET">Detroit</option>
-      <option value="GB">Green Bay</option>
-      <option value="HOU">Houston</option>
-      <option value="IND">Indianapolis</option>
-      <option value="JAC">Jacksonville</option>
-      <option value="KC">Kansas City</option>
-      <option value="LOS">Los Angeles</option>
-      <option value="MIA">Miami</option>
-      <option value="MIN">Minneapolis</option>
-      <option value="TEN">Nashville</option>
-      <option value="NO">New Orleans</option>
-      <option value="NYC">New York</option>
-      <option value="OAK">Oakland</option>
-      <option value="PHI">Philadelphia</option>
-      <option value="ARI">Phoenix</option>
-      <option value="PIT">Pittsburgh</option>
-      <option value="SF">San Francisco</option>
-      <option value="SEA">Seattle</option>
-      <option value="TB">Tampa</option>
-      <option value="WAS">Washington, DC</option>
-    </select>
-
-    <div ng-if="showResults" id='results' class="ng-cloak">
-      <h1>You should be afraid because ...</h1>
-      <div>
-        <h2>RESULTS PAGE</h2>
-        <h3>{{ numQuakes }} quakes in the past year</h3>
-        <h3>{{ teamName }} players have been arrested {{ arrests }} times</h3>
+  <div class="container" ng-controller='ParanoiaController'>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h1 class="header">why worry?</h1>
       </div>
     </div>
-
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <form id='zipper' ng-submit="getData()">
+          <input class="form-control" name='zip' type='text' ng-model="zipCode" placeholder="ZIP Code..." required />
+          <select class="form-control" id='cities' data-ng-model='team' ng-change="getValue()">
+            <option value="" disabled selected hidden>Pick the city closest to you</option>
+            <option value="ATL">Atlanta</option>
+            <option value="BAL">Baltimore</option>
+            <option value="NE">Boston</option>
+            <option value="BUF">Buffalo</option>
+            <option value="CAR">Charlotte</option>
+            <option value="CHI">Chicago</option>
+            <option value="CIN">Cincinnati</option>
+            <option value="CLE">Cleveland</option>
+            <option value="DAL">Dallas</option>
+            <option value="DEN">Denver</option>
+            <option value="DET">Detroit</option>
+            <option value="GB">Green Bay</option>
+            <option value="HOU">Houston</option>
+            <option value="IND">Indianapolis</option>
+            <option value="JAC">Jacksonville</option>
+            <option value="KC">Kansas City</option>
+            <option value="LOS">Los Angeles</option>
+            <option value="MIA">Miami</option>
+            <option value="MIN">Minneapolis</option>
+            <option value="TEN">Nashville</option>
+            <option value="NO">New Orleans</option>
+            <option value="NYC">New York</option>
+            <option value="OAK">Oakland</option>
+            <option value="PHI">Philadelphia</option>
+            <option value="ARI">Phoenix</option>
+            <option value="PIT">Pittsburgh</option>
+            <option value="SF">San Francisco</option>
+            <option value="SEA">Seattle</option>
+            <option value="TB">Tampa</option>
+            <option value="WAS">Washington, DC</option>
+          </select>
+          <button type="submit" class="btn btn-danger" value="zip">SUBMIT</button>
+        </form>
+      </div>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.js"></script>
-
-    <script src="app/app.js"></script>
+    <div class="row">
+      <div ng-if="showResults" id='results' class="ng-cloak">
+        <div class="col-md-12">
+          <h1>Because scary, context-free data from free API's exists!</h1>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-4 col-md-offset-1 bucket">
+          <h2 style="font-size: 150px;">{{ numQuakes }}</h2>
+          <p>quakes in the past year</p>
+          <p>within 200 miles of you</p>
+        </div>
+        <div class="col-md-4 col-md-offset-2 bucket">
+          <h2 style="font-size: 150px;">{{ arrests }}</h2>
+          <p>{{ teamName }} players have</p>
+          <p>been arrested since 2000</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.js"></script>
+  <script src="app.js"></script>
   </body>
 </html>
