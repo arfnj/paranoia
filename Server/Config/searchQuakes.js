@@ -15,9 +15,12 @@ var options = {
 };
 
 module.exports = function(req, res, callback){
+  console.log('SearchQuake.js / zipCode', req)
   zipCodeRequest(req, res, function(results){
+    console.log('zipCodeRequest results for ' + req + ' : ', results)
     options.qs.latitude = JSON.stringify(results["lat"]);
     options.qs.longitude = JSON.stringify(results["lng"]);
+    console.log('SearchQuake.js / options', options)
     request(options, function (error, response, body) {
       // console.log(options);
       if (error) {

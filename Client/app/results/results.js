@@ -1,13 +1,13 @@
 angular.module('results', [])
 
-.controller('ResultsController', function ($scope,$rootScope) {
+.controller('ResultsController', function ($scope, $rootScope) {
 
+  $rootScope
+  console.log($rootScope.quakeData)
   $scope.numQuakes = $rootScope.quakeData.length;
-  $rootScope.quakeData = [];
+  console.log('numquakes: ', $scope.numQuakes);
 
   $scope.Arrests = $rootScope.nflArrests;
   $scope.Team = $rootScope.nflTeam;
-
-
 
 });

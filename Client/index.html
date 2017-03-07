@@ -3,17 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <title>Time to worry!</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
     <h1>It doesn't mean they're not after you</h1>
     <div ng-controller='ParanoiaController'>
-    <form name='zipper' ng-submit="getData()">
+    <form id='zipper' ng-submit="getData()">
       <input name='zip' type='text' ng-model="zipCode"
         placeholder="Enter your ZIP Code here" required
         />
       <button type="submit" value="zip">submit</button>
     </form>
-    <select data-ng-model='team' ng-change="getValue()">
+    <select id='cities' data-ng-model='team' ng-change="getValue()">
       <option value="" disabled selected hidden>Pick the city closest to you</option>
       <option value="ATL">Atlanta</option>
       <option value="BAL">Baltimore</option>
@@ -56,6 +57,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.js"></script>
 
     <script src="app/app.js"></script>
-      <script src="app/results/results.js"></script>
+    <script src="app/results/results.js"></script>
   </body>
 </html>

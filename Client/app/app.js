@@ -11,6 +11,10 @@ angular.module('paranoia', ['results','ngRoute'])
     });
 })
 
+// .service('statistics', function () {
+//   var quakeData =
+// })
+
 .controller('ParanoiaController', function ($scope,$location,$http,$rootScope) {
 
   $scope.getData = function () {
@@ -23,6 +27,7 @@ angular.module('paranoia', ['results','ngRoute'])
     })
     .then (function(data) {
       $rootScope.quakeData = data.data;
+      console.log('root scope quakeData: ', $rootScope.quakeData)
       $scope.zipCode = '';
       $location.path('/results');
     })

@@ -3,10 +3,9 @@ var request = require('request');
 
 let baseURL = 'https://www.zipcodeapi.com/rest/' + zipkey + '/info.json';
 
-var options = { method: 'GET', url: baseURL};
-
 module.exports = function(req, res, callback) {
-  options.url += req;
+  var options = { method: 'GET', url: baseURL + req};
+  console.log('searchZips options: ', options.url)
   request(options, function(error, response, body) {
     if (error) {
       throw new Error(error);
