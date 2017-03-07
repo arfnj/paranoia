@@ -8,6 +8,16 @@
   </head>
   <body>
     <h1>It doesn't mean they're not after you</h1>
+    <form name='zipper' ng-submit="addLink()" novalidate>
+      <input name='zip' type="url"
+        ng-model="zipCode"
+        placeholder="Enter your ZIP Code here" required
+        ng-class="{'error': shortlyForm.$invalid && shortlyForm.$dirty}"/>
+
+      <button type="submit" value="zip" ng-disabled='shortlyForm.$invalid'>
+        submit
+      </button>
+    </form>
 
 
 
